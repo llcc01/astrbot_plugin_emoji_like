@@ -93,5 +93,7 @@ class EmojiLikePlugin(Star):
             image_urls=image_urls,
             labels=self.cfg.emotion_labels,
         )
+        if not emotion:
+            return
         emoji_ids = self.cfg.get_emoji_ids(emotion, need_count=1)
         await self._emoji_like(event, emoji_ids, message_id=message_id)

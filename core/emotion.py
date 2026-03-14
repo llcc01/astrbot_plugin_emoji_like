@@ -70,7 +70,7 @@ class EmotionJudger:
         labels: list[str] | None,
     ) -> tuple[str, str]:
         if labels:
-            label_hint = f"只能从以下情感标签中选择一个：{labels}\n"
+            label_hint = f"只能从以下情感标签中选择一个：{labels}，如果无关，请返回 " '{"emotion": "无"}' "\n"
         else:
             label_hint = (
                 "不限制情感标签，请自行判断文本的主要情感。\n"
@@ -103,5 +103,7 @@ class EmotionJudger:
         emotion = data.get("emotion")
         if not emotion or not isinstance(emotion, str):
             raise ValueError(f"LLM JSON 缺少或非法 emotion 字段: {data}")
+        if emotion == "无":
+            return None
 
         return emotion
