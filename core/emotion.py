@@ -51,7 +51,7 @@ class EmotionJudger:
             )
 
             emotion = self._parse_llm_response(resp.completion_text)
-            logger.debug(f"情感分析结果: {emotion}")
+            logger.info(f"情感分析结果: {emotion}")
 
             event.set_extra("emotion", emotion)
             return emotion
