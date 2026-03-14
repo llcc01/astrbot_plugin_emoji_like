@@ -3,4 +3,4 @@ display_name: 智能贴表情
 desc: 调用LLM判断消息的情感, 智能地给消息贴上QQ表情
 version: v2.0.0
 author: Zhalslar
-repo: https://github.com/Zhalslar/astrbot_plugin_emoji_like
+repo: https://github.com/llcc01/astrbot_plugin_emoji_like
